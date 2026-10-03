@@ -24,6 +24,12 @@ const Login = () => {
   }, [darkMode]);
 
   useEffect(() => {
+    alert(
+      "Demo Admin Account\n\nEmail:admin@koda.com\nPassword:admin@koda.com",
+    );
+  }, []);
+
+  useEffect(() => {
     if (!isLoading && user?.role === "admin") {
       navigate("/", { replace: true });
     }
@@ -66,7 +72,6 @@ const Login = () => {
       toast.success("Logged in successfully! Welcome back.");
 
       navigate("/", { replace: true, state: { showLoginToast: true } });
-      
     } catch (error) {
       const message =
         (error?.code === "NOT_ADMIN" && error.message) ||
